@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Inner Blue Arc (Top Left) -->
+  <path d="M 64 20 A 44 44 0 0 0 20 64 A 44 44 0 0 0 54 107" fill="none" stroke="#00E5FF" stroke-width="4.5" stroke-linecap="round"/>
+  
+  <!-- Outer Yellow Arc (Bottom Right) -->
+  <path d="M 64 108 A 44 44 0 0 0 108 64 A 44 44 0 0 0 74 21" fill="none" stroke="#FFE600" stroke-width="4.5" stroke-linecap="round"/>
+  
+  <!-- Center KD Monogram Text -->
+  <text x="64" y="71" font-family="'Space Grotesk', 'Plus Jakarta Sans', Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">KD</text>
+</svg>

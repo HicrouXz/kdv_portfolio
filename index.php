@@ -1,0 +1,708 @@
+<?php
+/**
+ * Kenneth De Vera - An Aspiring Fullstack Developer Portfolio
+ */
+
+$portfolio_title = "KDV | Portfolio";
+$is_inside_subfolder = (basename(__DIR__) === 'PORTFOLIO');
+$projects_root = $is_inside_subfolder ? "../" : "";
+
+$projects = [
+    [
+        'id' => 'buyparts',
+        'title' => 'Buyparts - Vehicle & Bike E-Commerce',
+        'category' => 'E-Commerce System',
+        'color_theme' => 'yellow',
+        'type' => 'desktop',
+        'image' => 'images/Buyparts.png',
+        'tags' => ['PHP', 'MySQL', 'JavaScript', 'CSS3', 'E-Commerce'],
+        'description' => 'A comprehensive online marketplace for ordering automobile, motorcycle, and bicycle spare parts with shopping cart, chat system, and checkout workflow.',
+        'details' => 'Features full SQL database schema, product catalog filters (CARS.php, MOTORCYCLE.php, BICYCLE.php), shopping cart (addToCart.php), Google OAuth callback, live chat system (chat.php, chat.js), and checkout order processing.',
+        'gallery' => [
+            'images/buyparts/buy1.png',
+            'images/buyparts/buy2.png',
+            'images/buyparts/buy3.png',
+            'images/buyparts/buuy4.png',
+            'images/buyparts/buy5.png'
+        ]
+    ],
+    [
+        'id' => 'hris',
+        'title' => 'HRIS System Attendance Side (Official)',
+        'category' => 'Enterprise System',
+        'color_theme' => 'blue',
+        'type' => 'desktop',
+        'image' => 'images/HRIS.png',
+        'tags' => ['PHP', 'MySQL DB', 'Multi-Role Auth', 'Admin Dashboard'],
+        'description' => 'A collaborative group internship project during OJT featuring an "Official Human Resource Information System" with granular role-based management across Super Admin, Admin, Coach, and Employee dashboards.',
+        'details' => 'Engineered with relational SQL databases (official_hris_db.sql, employees.sql), employee records management, attendance monitoring, payroll log tracking, API endpoints (api/), and secure multi-tier session login.',
+        'gallery' => [
+            'images/hris/hris1.png',
+            'images/hris/hris2.png',
+            'images/hris/hris3.png',
+            'images/hris/hris4.png',
+            'images/hris/hris5.png',
+            'images/hris/hris6.png'
+        ]
+    ],
+    [
+        'id' => 'examterm',
+        'title' => 'Makebili - Campus Food Delivery & E-Commerce',
+        'category' => 'E-Commerce System',
+        'color_theme' => 'yellow',
+        'type' => 'desktop',
+        'image' => 'images/makebili.png',
+        'tags' => ['PHP', 'MySQL Auth', 'Category Filters', 'Student Delivery'],
+        'description' => 'Makebili is an e-commerce platform designed for campus food stalls. It connects local sellers with students, enabling vendors to boost sales while allowing students to earn extra income by delivering orders within the school.',
+        'details' => 'Includes automated database setup (init_database.php), category management (categories.php), user authentication handlers (process_login.php, process_registration.php), interactive shopping/enrollment cart, and order delivery modules.',
+        'gallery' => [
+            'images/makebili/makebili1.png',
+            'images/makebili/makebili2.png',
+            'images/makebili/makebili3.png',
+            'images/makebili/makebili4.png'
+        ]
+    ],
+    [
+        'id' => 'hielo',
+        'title' => 'Hielo - Bacolod Tourism Showcase',
+        'category' => 'Cultural Tourism',
+        'color_theme' => 'blue',
+        'type' => 'desktop',
+        'image' => 'images/Masskara.png',
+        'tags' => ['HTML5', 'CSS3', 'JavaScript', 'Tourism Guide'],
+        'description' => 'La Salle Expo group project interactive tourism web application featuring Bacolod City landmarks, historical houses (The Ruins, Balay Negrense), delicacies, tours, and merchandise.',
+        'details' => 'Presents rich multimedia pages highlighting historic sites (plaza, cathedral, museums), delicacies guides, interactive event merchandise store, arena schedules, and local tour booking details.',
+        'gallery' => [
+            'images/masskara/mass1.png',
+            'images/masskara/mass2.png',
+            'images/masskara/mass3.png',
+            'images/masskara/mass4.png',
+            'images/masskara/mass5.png'
+        ]
+    ],
+    [
+        'id' => 'agriease',
+        'title' => 'AgriEase - Mobile Web AgriTech App',
+        'category' => 'Mobile Web App',
+        'color_theme' => 'yellow',
+        'type' => 'mobile',
+        'image' => 'images/agriease.png',
+        'tags' => ['Mobile Web', 'AgriTech', 'PHP', 'JavaScript', 'Responsive UI'],
+        'description' => 'Capstone and research web and mobile-based machines to agricultural equipment for rent. The project’s goal is to enable smallholder farmers to access a more transparent and efficient way to rent modern agricultural machinery through the system of shared economy.',
+        'details' => 'Engineered for seamless mobile web access. Features responsive mobile navigation, smart farming dashboard metrics, equipment rental listings, real-time crop updates, and streamlined farmer-to-owner connectivity.',
+        'gallery' => [
+            'images/agritech/agri1.png',
+            'images/agritech/agri2.png',
+            'images/agritech/agri3.png',
+            'images/agritech/agri4.png',
+            'images/agritech/agri5.png',
+            'images/agritech/agri6.png',
+            'images/agritech/agri7.png',
+            'images/agritech/agri8.png',
+            'images/agritech/agri9.png',
+            'images/agritech/agri10.png',
+            'images/agritech/agri11.png'
+        ]
+    ]
+];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $portfolio_title; ?></title>
+    <meta name="description" content="Kenneth De Vera - An Aspiring Fullstack Web Developer Portfolio showcasing PHP, MySQL, JavaScript, and custom web applications.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png?v=1.1">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png?v=1.1">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xervereal.helioho.st/public_html/PORTFOLIO/index.php">
+    <meta property="og:title" content="Kenneth De Vera | Fullstack Web Developer Portfolio">
+    <meta property="og:description" content="Explore live web applications, enterprise HRIS systems, PHP/MySQL architecture, and custom web software solutions engineered by Kenneth De Vera.">
+    <meta property="og:image" content="https://xervereal.helioho.st/public_html/PORTFOLIO/images/HRIS.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Early Theme Detection -->
+    <script>
+        (function() {
+            try {
+                var saved = localStorage.getItem('kdv_theme');
+                var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                if (saved === 'light' || (!saved && prefersLight)) {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.documentElement.classList.add('light-mode');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="stylesheet" href="style.css?v=5.0">
+</head>
+<body>
+
+    <div class="fixed-bg"></div>
+
+    <!-- CYBER PRELOADER LOADING SCREEN -->
+    <div id="cyberPreloader" class="preloader-overlay">
+        <div class="preloader-content">
+            <div class="preloader-spinner">
+                <div class="spinner-ring ring-yellow"></div>
+                <div class="spinner-ring ring-blue"></div>
+                <div class="spinner-core">KD</div>
+            </div>
+            <h2 class="preloader-title">KENNETH DE VERA</h2>
+            <p class="preloader-subtext">PORTFOLIO</p>
+            <div class="preloader-bar-wrapper">
+                <div class="preloader-bar-fill" id="preloaderBar"></div>
+            </div>
+            <span class="preloader-status" id="preloaderStatus">INITIALIZING SYSTEM...</span>
+        </div>
+    </div>
+
+    <canvas id="netCanvas"></canvas>
+
+    <div class="ambient-glow glow-yellow"></div>
+    <div class="ambient-glow glow-blue"></div>
+    <div class="cyber-spiral-bg spiral-top-left"></div>
+    <div class="cyber-spiral-bg spiral-bottom-right"></div>
+
+    <!-- Top Navigation Pill -->
+    <header class="nav-container">
+        <nav class="pill-navbar" id="pillNavbar">
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="mobile-menu-header">
+                    <span class="menu-title">NAVIGATION</span>
+                </li>
+                <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
+                <li><a href="#about" class="nav-link" id="nav-about">About me</a></li>
+                <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+                <li><a href="#experience" class="nav-link" id="nav-experience">Experience</a></li>
+                <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+                <li class="mobile-menu-footer">
+                    <a href="assets/deverakennethcv.pdf" download="deverakennethcv.pdf" target="_blank" class="mobile-cv-btn">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                    </a>
+                </li>
+            </ul>
+
+            <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light and Dark Mode" title="Toggle Light / Dark Mode">
+                <i class="fa-solid fa-sun" id="themeToggleIcon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="main-wrapper">
+
+        <!-- HOME SECTION -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-sparkles"></i> Welcome to My Portfolio
+                </div>
+                <h1 class="hero-heading">Kenneth De Vera</h1>
+                <p class="hero-subtitle">
+                    An Aspiring Fullstack Web Developer & crafting dynamic PHP/MySQL applications and modern web solutions.
+                </p>
+
+                <div class="hero-cta-buttons">
+                    <a href="assets/deverakennethcv.pdf" download="deverakennethcv.pdf" target="_blank" class="btn-resume" id="btn-resume">
+                        <i class="fa-solid fa-download"></i> Resume
+                    </a>
+                    <a href="#about" class="btn-experience" id="btn-experience">
+                        About Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="section-block">
+            <div class="section-heading-wrapper">
+                <span class="section-subtext">GET TO KNOW ME</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="who-am-i-box">
+                <h3 class="who-am-i-title">Who Am I</h3>
+                <p class="bio-main">
+                    I'm <strong class="highlight-yellow">Kenneth De Vera</strong>, a resourceful and motivated fresh grad student with a foundation in programming, system troubleshooting, and development.
+                </p>
+                <p class="bio-lorem">
+                    Capable in both collaborative and independent environments, delivering creative solutions through advanced technical skills. Demonstrates a passion for emerging technologies and staying updated on industry trends, complemented by hands-on experience in video editing. Eager to apply knowledge and skills to real-world challenges and contribute to innovative projects across diverse platforms.
+                </p>
+            </div>
+
+            <div class="about-cards-grid">
+                <div class="about-card glass-panel">
+                    <div class="icon-box box-yellow">
+                        <i class="fa-solid fa-code-commit"></i>
+                    </div>
+                    <h3>Backend & Database</h3>
+                    <p>
+                        Specialized in writing scalable PHP server scripts, crafting relational MySQL database structures, managing authentication flows, and building CRUD operations.
+                    </p>
+                    <ul class="check-list">
+                        <li><i class="fa-solid fa-check text-yellow"></i> PHP 8 & Apache/XAMPP Integration</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Relational MySQL Schema Design</li>
+                        <li><i class="fa-solid fa-check text-yellow"></i> Custom API Endpoints & Auth</li>
+                    </ul>
+                </div>
+
+                <div class="about-card glass-panel">
+                    <div class="icon-box box-blue">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3>Frontend & Design</h3>
+                    <p>
+                        Passionate about crafting dynamic, modern responsive interfaces using HTML5, CSS3 glassmorphism, JavaScript animations, and sleek dark themes.
+                    </p>
+                    <div class="tech-tags-grid">
+                        <span><i class="fa-brands fa-php text-yellow"></i> PHP</span>
+                        <span><i class="fa-solid fa-database text-blue"></i> MySQL</span>
+                        <span><i class="fa-brands fa-js text-yellow"></i> JavaScript</span>
+                        <span><i class="fa-brands fa-html5 text-blue"></i> HTML5</span>
+                        <span><i class="fa-brands fa-css3-alt text-yellow"></i> CSS3</span>
+                        <span><i class="fa-solid fa-video text-blue"></i> Video Editing</span>
+                        <span><i class="fa-solid fa-globe text-yellow"></i> HelioHost</span>
+                        <span><i class="fa-solid fa-cloud text-blue"></i> Vercel</span>
+                    </div>
+                </div>
+
+                <!-- Academic Background Card (Clean Theme-Aware Classes) -->
+                <div class="about-card glass-panel full-width-card">
+                    <div class="academic-header">
+                        <div class="icon-box box-yellow">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="academic-header-title">Academic Background</h3>
+                            <p class="academic-header-sub">Educational journey, honors & academic recognitions</p>
+                        </div>
+                    </div>
+
+                    <div class="academic-grid">
+                        <!-- Tertiary Education -->
+                        <div class="academic-item-box">
+                            <div class="academic-item-top">
+                                <span class="academic-level text-yellow">TERTIARY</span>
+                                <span class="academic-year-pill yellow"><i class="fa-regular fa-calendar-days"></i> 2022 – 2026</span>
+                            </div>
+                            <h4 class="academic-school">University of Saint La Salle — Bacolod</h4>
+                            <p class="academic-degree">Bachelor of Science in Information Technology (BSIT)</p>
+                            <div class="academic-badges">
+                                <span class="acad-badge yellow"><i class="fa-solid fa-award"></i> 1st–3rd Year Dean's Lister</span>
+                                <span class="acad-badge blue"><i class="fa-solid fa-medal"></i> Academic Achiever</span>
+                            </div>
+                        </div>
+
+                        <!-- Senior High School -->
+                        <div class="academic-item-box">
+                            <div class="academic-item-top">
+                                <span class="academic-level text-blue">SENIOR HIGH SCHOOL</span>
+                                <span class="academic-year-pill blue"><i class="fa-regular fa-calendar-days"></i> 2020 – 2022</span>
+                            </div>
+                            <h4 class="academic-school">Doña Hortencia Salas Benedicto National High School</h4>
+                            <p class="academic-degree">Grade 11 – 12</p>
+                            <div class="academic-badges">
+                                <span class="acad-badge blue"><i class="fa-solid fa-star"></i> With High Honors</span>
+                            </div>
+                        </div>
+
+                        <!-- Junior High School -->
+                        <div class="academic-item-box">
+                            <div class="academic-item-top">
+                                <span class="academic-level text-yellow">JUNIOR HIGH SCHOOL</span>
+                                <span class="academic-year-pill yellow"><i class="fa-regular fa-calendar-days"></i> 2016 – 2020</span>
+                            </div>
+                            <h4 class="academic-school">Doña Hortencia Salas Benedicto National High School</h4>
+                            <p class="academic-degree">Grade 7 – 10</p>
+                            <div class="academic-badges">
+                                <span class="acad-badge neutral"><i class="fa-solid fa-check text-yellow"></i> Grade 7–9 With Honors</span>
+                                <span class="acad-badge yellow"><i class="fa-solid fa-star"></i> Grade 10 With High Honors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics Card -->
+                <div class="about-card glass-panel full-width-card">
+                    <div class="stats-counter-row">
+                        <div class="stat-item">
+                            <span class="stat-num text-yellow"><?php echo count($projects); ?></span>
+                            <span class="stat-text">Active Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num text-blue">100%</span>
+                            <span class="stat-text">Responsive Design</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num text-yellow">PHP/SQL</span>
+                            <span class="stat-text">Core Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section-block">
+            <div class="section-heading-wrapper">
+                <span class="section-subtext">CORE COMPETENCIES</span>
+                <h2 class="section-title">My Skills & Expertise</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="skills-grid-layout">
+                <div class="skills-category-card glass-panel">
+                    <div class="category-header">
+                        <span class="category-badge yellow"><i class="fa-solid fa-code"></i> TECHNICAL MASTERY</span>
+                        <h3>Development & Systems</h3>
+                    </div>
+
+                    <div class="skills-list">
+                        <div class="skill-card-item">
+                            <div class="skill-item-head">
+                                <div class="skill-icon-title">
+                                    <i class="fa-solid fa-laptop-code skill-icon yellow"></i>
+                                    <h4>Web Development</h4>
+                                </div>
+                                <span class="skill-tag yellow">Core Competency</span>
+                            </div>
+                            <p class="skill-desc">End-to-end website and web system engineering utilizing clean HTML5, CSS3, JavaScript, and custom PHP backend solutions.</p>
+                        </div>
+
+                        <div class="skill-card-item">
+                            <div class="skill-item-head">
+                                <div class="skill-icon-title">
+                                    <i class="fa-solid fa-layer-group skill-icon blue"></i>
+                                    <h4>Frontend / Backend Developer</h4>
+                                </div>
+                                <span class="skill-tag yellow"><i class="fa-solid fa-arrows-rotate fa-spin"></i> FULLSTACK (ONGOING)</span>
+                            </div>
+                            <p class="skill-desc">Architecting responsive glassmorphism user interfaces alongside secure server-side logic, session management, and REST APIs.</p>
+                        </div>
+
+                        <div class="skill-card-item">
+                            <div class="skill-item-head">
+                                <div class="skill-icon-title">
+                                    <i class="fa-solid fa-database skill-icon yellow"></i>
+                                    <h4>Basic Database Management</h4>
+                                </div>
+                                <span class="skill-tag yellow">SQL / MySQL</span>
+                            </div>
+                            <p class="skill-desc">Designing relational database schemas, executing CRUD SQL queries, maintaining data integrity, and optimizing database tables.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category-card glass-panel">
+                    <div class="category-header">
+                        <span class="category-badge blue"><i class="fa-solid fa-brain"></i> PROFESSIONAL & SOFT SKILLS</span>
+                        <h3>Leadership & Execution</h3>
+                    </div>
+
+                    <div class="skills-list">
+                        <div class="skill-card-item">
+                            <div class="skill-item-head">
+                                <div class="skill-icon-title">
+                                    <i class="fa-solid fa-comments skill-icon blue"></i>
+                                    <h4>Communication Skills</h4>
+                                </div>
+                                <span class="skill-tag blue">Collaboration</span>
+                            </div>
+                            <p class="skill-desc">Articulating technical concepts clearly, collaborating smoothly across cross-functional teams, and facilitating project reviews.</p>
+                        </div>
+
+                        <div class="skill-card-item">
+                            <div class="skill-item-head">
+                                <div class="skill-icon-title">
+                                    <i class="fa-solid fa-diagram-project skill-icon yellow"></i>
+                                    <h4>Strategic Planning</h4>
+                                </div>
+                                <span class="skill-tag yellow">Project Ops</span>
+                            </div>
+                            <p class="skill-desc">Breaking down complex system requirements into actionable milestones, prioritizing tasks, and meeting project deadlines efficiently.</p>
+                        </div>
+
+                        <div class="skill-card-item">
+                            <div class="skill-item-head">
+                                <div class="skill-icon-title">
+                                    <i class="fa-solid fa-heart-pulse skill-icon blue"></i>
+                                    <h4>Emotional Intelligence</h4>
+                                </div>
+                                <span class="skill-tag blue">Interpersonal</span>
+                            </div>
+                            <p class="skill-desc">Maintaining composure under high-pressure deliverables, demonstrating empathy, and building strong team trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="section-block">
+            <div class="section-heading-wrapper">
+                <span class="section-subtext">CAREER & JOURNEY</span>
+                <h2 class="section-title">My Experience</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="experience-timeline">
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-header">
+                        <div class="timeline-role">
+                            <span class="timeline-badge yellow"><i class="fa-solid fa-building-user"></i> INTERNSHIP</span>
+                            <h3>Software Development & NOC Intern — IReply Back Office Services, Inc.</h3>
+                        </div>
+                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> Dec 2025 – April 2026</span>
+                    </div>
+
+                    <p class="timeline-desc">
+                        Completed an intensive dual-rotation internship program spanning <strong>Network Operations Center (NOC) Infrastructure Monitoring</strong> and <strong>Enterprise Back End Web Development</strong> for internal HR systems.
+                    </p>
+
+                    <div class="timeline-tags-row">
+                        <span class="exp-tag yellow">Network Operations (NOC)</span>
+                        <span class="exp-tag blue">Back End HRIS Development</span>
+                        <span class="exp-tag neutral">Attendance Module</span>
+                        <span class="exp-tag neutral">System QA & Audit</span>
+                    </div>
+
+                    <ul class="timeline-points">
+                        <li>
+                            <i class="fa-solid fa-chevron-right text-yellow"></i>
+                            <div>
+                                <strong class="timeline-point-title">Network Operations Center (NOC) Monitoring & Infrastructure Support</strong>
+                                <span class="timeline-point-text">Participated in rotational shifts monitoring real-time enterprise network health, tracking server uptime metrics, analyzing diagnostic alerts, and executing simulated troubleshooting protocols to maintain network stability and operational continuity.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-chevron-right text-yellow"></i>
+                            <div>
+                                <strong class="timeline-point-title">Enterprise HRIS System Design & Collaboration</strong>
+                                <span class="timeline-point-text">Collaborated directly with senior software developers, UI designers, and project managers to plan and build an internal Human Resource Information System (HRIS), digitizing manual employee records into a secure central database and streamlining HR administrative processes.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-chevron-right text-yellow"></i>
+                            <div>
+                                <strong class="timeline-point-title">Back End Development — Attendance & Time Tracking Module</strong>
+                                <span class="timeline-point-text">Selected as the lead Back End Developer for a dedicated engineering sub-team. Architected and implemented the server-side logic for the <em>Attendance Module</em>, handling shift time calculations, clock-in/out logic, database record checks, and backend system diagnostics for the HRIS project.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-chevron-right text-yellow"></i>
+                            <div>
+                                <strong class="timeline-point-title">System Integration, Quality Assurance & Security Testing</strong>
+                                <span class="timeline-point-text">Assisted in multi-stage system architecture design, unit testing, and integration verification. Performed functional checks and usability evaluations to ensure high platform reliability, data security, and seamless user experience for enterprise deployment.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="section-block">
+            <div class="section-heading-wrapper">
+                <span class="section-subtext">PORTFOLIO SHOWCASE</span>
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-intro">
+                    Featured web applications, systems, and mobile interfaces. Click any project to explore architectural details, tech stack, and interactive gallery screenshots.
+                </p>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="project-filter-bar" id="projectFilterBar">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="e-commerce">E-Commerce</button>
+                <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+                <button class="filter-btn" data-filter="tourism">Tourism</button>
+                <button class="filter-btn" data-filter="agritech">AgriTech</button>
+            </div>
+
+            <div class="projects-grid">
+                <?php foreach ($projects as $proj): ?>
+                    <article class="project-card glass-panel" data-id="<?php echo $proj['id']; ?>" onclick="showProjectDetails('<?php echo $proj['id']; ?>')">
+                        <div class="project-header-banner">
+                            <img src="<?php echo htmlspecialchars($proj['image']); ?>" alt="<?php echo htmlspecialchars($proj['title']); ?>" class="project-card-img" loading="lazy" decoding="async">
+                            <span class="badge-category <?php echo $proj['color_theme']; ?>">
+                                <?php echo htmlspecialchars($proj['category']); ?>
+                            </span>
+                        </div>
+
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <?php foreach ($proj['tags'] as $tag): ?>
+                                    <span><?php echo htmlspecialchars($tag); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <h3 class="project-name"><?php echo htmlspecialchars($proj['title']); ?></h3>
+                            <p class="project-snippet"><?php echo htmlspecialchars($proj['description']); ?></p>
+
+                            <div class="project-footer-btns">
+                                <button class="btn-details-action btn-launch btn-<?php echo $proj['color_theme']; ?>" type="button" onclick="showProjectDetails('<?php echo $proj['id']; ?>')">
+                                    <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-block">
+            <div class="section-heading-wrapper">
+                <span class="section-subtext">LET'S TALK & CONNECT</span>
+                <h2 class="section-title">Connect With Me</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="contact-split-layout">
+                <div class="connect-cards-grid">
+                    <a href="mailto:kennethdv22@gmail.com?subject=Portfolio%20Inquiry%20-%20Kenneth%20De%20Vera" onclick="handleEmailClick(event)" class="social-card">
+                        <div class="social-card-head">
+                            <i class="fa-solid fa-envelope social-icon"></i>
+                            <h3>Gmail</h3>
+                        </div>
+                        <p>Reach out directly for software inquiries, technical roles, or project proposals.</p>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/kenneth-de-vera-3022683a8" target="_blank" rel="noopener" class="social-card">
+                        <div class="social-card-head">
+                            <i class="fa-brands fa-linkedin social-icon"></i>
+                            <h3>LinkedIn</h3>
+                        </div>
+                        <p>Explore my professional background, engineering experience, and career progress.</p>
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1D8PrK1Gyr/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-card">
+                        <div class="social-card-head">
+                            <i class="fa-brands fa-facebook social-icon"></i>
+                            <h3>Facebook</h3>
+                        </div>
+                        <p>Connect with me on Facebook for informal messaging and social updates.</p>
+                    </a>
+
+                    <a href="https://www.instagram.com/kenth.dv/" target="_blank" rel="noopener" class="social-card">
+                        <div class="social-card-head">
+                            <i class="fa-brands fa-instagram social-icon"></i>
+                            <h3>Instagram</h3>
+                        </div>
+                        <p>Connect with me on Instagram for direct messaging, social updates, and visual content.</p>
+                    </a>
+
+                    <a href="https://github.com/HicrouX" target="_blank" rel="noopener" class="social-card full-width-card">
+                        <div class="social-card-head">
+                            <i class="fa-brands fa-github social-icon"></i>
+                            <h3>GitHub</h3>
+                        </div>
+                        <p>Browse my public code repositories, web system architecture, and development commits.</p>
+                    </a>
+                </div>
+
+                <div class="get-in-touch-card">
+                    <div class="touch-card-banner">
+                        <div class="banner-title-art">KENNETH</div>
+                    </div>
+
+                    <div class="touch-card-content">
+                        <h2 class="touch-heading">Get in Touch</h2>
+
+                        <div class="touch-item">
+                            <span class="touch-label">PRIMARY EMAIL</span>
+                            <h4 class="touch-value">kennethdv22@gmail.com</h4>
+                            <p class="touch-desc">Feel free to drop a message anytime. I regularly check my inbox and aim to respond promptly.</p>
+                        </div>
+
+                        <div class="touch-item">
+                            <span class="touch-label">LOCATION & TIMEZONE</span>
+                            <h4 class="touch-value">Bacolod City, Philippines</h4>
+                            <p class="touch-desc">Based in Negros Occidental (GMT+8), open to remote developer contracts and global remote teams.</p>
+                        </div>
+
+                        <div class="touch-item">
+                            <span class="touch-label">WORK AVAILABILITY</span>
+                            <h4 class="touch-value">Monday – Friday</h4>
+                            <p class="touch-desc">Actively available for Fullstack Web Development, PHP/MySQL systems, and software engineering roles.</p>
+                        </div>
+
+                        <a href="mailto:kennethdv22@gmail.com?subject=Portfolio%20Inquiry%20-%20Kenneth%20De%20Vera" onclick="handleEmailClick(event)" class="btn-send-email">
+                            <i class="fa-solid fa-paper-plane"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>&copy; <?php echo date('Y'); ?> <strong>Kenneth De Vera</strong>. All Rights Reserved.</p>
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About me</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="footer-back-top" onclick="scrollToTop()" aria-label="Back to Top">
+                <i class="fa-solid fa-arrow-up"></i> Back to Top
+            </button>
+        </div>
+    </footer>
+
+    <!-- FLOATING BACK TO TOP ARROW BUTTON -->
+    <button class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="Back to Top" title="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- PROJECT MODAL DIALOG -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-card glass-panel">
+            <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- FULLSCREEN IMAGE LIGHTBOX -->
+    <div class="lightbox-overlay" id="imageLightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close-btn" onclick="closeLightbox(event)" aria-label="Close Lightbox">&times;</button>
+            <img id="lightboxImg" src="" alt="Screenshot Full View">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- CYBER TOAST NOTIFICATION CONTAINER -->
+    <div id="cyberToast" class="cyber-toast">
+        <i class="fa-solid fa-circle-check text-yellow"></i>
+        <span id="toastMsg">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        const PROJECTS_DATA = <?php echo json_encode($projects); ?>;
+    </script>
+    <script src="script.js?v=5.0"></script>
+</body>
+</html>
