@@ -1627,22 +1627,38 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     margin-left: 8px;
     flex-shrink: 0;
-    transform: none !important; /* Force reset any stuck transforms */
+    transform: none !important;
+    transform-style: flat;
 }
 
-/* Only apply hover rotation on desktop devices with a fine pointer */
+/* Ensure the icon itself never inherits or traps a rotation matrix */
+.theme-toggle-btn i {
+    transform: none !important;
+    transition: transform 0.3s ease;
+}
+
+/* Only apply subtle hover rotation on true desktop fine pointers */
 @media (hover: hover) and (pointer: fine) {
     .theme-toggle-btn:hover {
         background: rgba(255, 230, 0, 0.16);
         border-color: var(--yellow);
-        transform: scale(1.08) rotate(15deg) !important;
         box-shadow: 0 0 16px var(--yellow-glow);
+    }
+    
+    .theme-toggle-btn:hover i {
+        transform: rotate(15deg) scale(1.1) !important;
     }
 }
 
-/* Prevent touch state entrapment on mobile / iOS Safari */
-.theme-toggle-btn:active {
+/* Clean, tilt-free click/active state */
+.theme-toggle-btn:active,
+.theme-toggle-btn:focus {
     transform: scale(0.95) !important;
+}
+
+.theme-toggle-btn:active i,
+.theme-toggle-btn:focus i {
+    transform: none !important;
 }
 
 /* ==========================================================================
