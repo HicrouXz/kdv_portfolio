@@ -1947,3 +1947,16 @@ body.light-mode .back-to-top-btn {
         font-size: 2.2rem;
     }
 }
+
+.pill-navbar {
+    /* Existing styles... */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.theme-toggle-btn {
+    /* Existing styles... */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}

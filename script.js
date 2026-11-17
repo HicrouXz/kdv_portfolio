@@ -460,5 +460,13 @@ function applyTheme(theme) {
             toggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
         }
     }
+
+    // FIX: Force a quick DOM reflow/repaint specifically for iOS Safari rendering bugs
+    const navbar = document.getElementById('pillNavbar');
+    if (navbar) {
+        navbar.style.display = 'none';
+        navbar.offsetHeight; // Triggers layout recalculation
+        navbar.style.display = '';
+    }
 }
 window.applyTheme = applyTheme;
