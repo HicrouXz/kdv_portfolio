@@ -1624,16 +1624,25 @@ body {
     align-items: center;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     margin-left: 8px;
     flex-shrink: 0;
+    transform: none !important; /* Force reset any stuck transforms */
 }
 
-.theme-toggle-btn:hover {
-    background: rgba(255, 230, 0, 0.16);
-    border-color: var(--yellow);
-    transform: scale(1.08) rotate(15deg);
-    box-shadow: 0 0 16px var(--yellow-glow);
+/* Only apply hover rotation on desktop devices with a fine pointer */
+@media (hover: hover) and (pointer: fine) {
+    .theme-toggle-btn:hover {
+        background: rgba(255, 230, 0, 0.16);
+        border-color: var(--yellow);
+        transform: scale(1.08) rotate(15deg) !important;
+        box-shadow: 0 0 16px var(--yellow-glow);
+    }
+}
+
+/* Prevent touch state entrapment on mobile / iOS Safari */
+.theme-toggle-btn:active {
+    transform: scale(0.95) !important;
 }
 
 /* ==========================================================================
