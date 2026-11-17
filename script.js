@@ -426,10 +426,11 @@ function initTheme() {
     if (toggleBtn) {
         toggleBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
             const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
             applyTheme(nextTheme);
-        });
+        }, { passive: false });
     }
 }
 
@@ -461,11 +462,10 @@ function applyTheme(theme) {
         }
     }
 
-    // FIX: Force a quick DOM reflow/repaint specifically for iOS Safari rendering bugs
     const navbar = document.getElementById('pillNavbar');
     if (navbar) {
         navbar.style.display = 'none';
-        navbar.offsetHeight; // Triggers layout recalculation
+        navbar.offsetHeight; 
         navbar.style.display = '';
     }
 }

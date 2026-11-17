@@ -726,7 +726,7 @@ body {
     text-align: center;
     padding: 10px 0;
     gap: 16px;
-    flex-wrap: wrap; /* FIXED: allows metrics to wrap smoothly on mobile screens */
+    flex-wrap: wrap;
 }
 
 .stat-item {
@@ -1559,7 +1559,7 @@ body {
 .cyber-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
 
 /* ==========================================================================
-   THEME TOGGLE BUTTON
+   THEME TOGGLE BUTTON (FIXED FOR iOS STICKY TILTING/GLITCH)
    ========================================================================== */
 .theme-toggle-btn {
     background: rgba(255, 255, 255, 0.08);
@@ -1573,16 +1573,26 @@ body {
     align-items: center;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
     margin-left: 8px;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+    transform: none !important; /* Force reset so iOS never gets stuck tilted */
 }
 
-.theme-toggle-btn:hover {
-    background: rgba(255, 230, 0, 0.16);
-    border-color: var(--yellow);
-    transform: scale(1.08) rotate(15deg);
-    box-shadow: 0 0 16px var(--yellow-glow);
+/* Hover rotation only applies to true desktop pointer/mouse devices */
+@media (hover: hover) and (pointer: fine) {
+    .theme-toggle-btn:hover {
+        background: rgba(255, 230, 0, 0.16);
+        border-color: var(--yellow);
+        transform: scale(1.08) rotate(15deg) !important;
+        box-shadow: 0 0 16px var(--yellow-glow);
+    }
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.92) !important;
+    background: rgba(255, 230, 0, 0.2);
 }
 
 /* ==========================================================================
@@ -1938,7 +1948,6 @@ body.light-mode .back-to-top-btn {
     .hero-cta-buttons { flex-direction: column; width: 100%; }
     .btn-resume, .btn-experience { width: 100%; justify-content: center; }
     
-    /* Extra mobile fine-tuning for stats counter */
     .stats-counter-row {
         flex-direction: column;
         gap: 20px;
@@ -1946,17 +1955,4 @@ body.light-mode .back-to-top-btn {
     .stat-num {
         font-size: 2.2rem;
     }
-}
-
-.pill-navbar {
-    /* Existing styles... */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-.theme-toggle-btn {
-    /* Existing styles... */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 }
