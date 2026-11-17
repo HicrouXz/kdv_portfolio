@@ -1,152 +1,38 @@
-<?php
-/**
- * Kenneth De Vera - An Aspiring Fullstack Developer Portfolio
- */
-
-$portfolio_title = "KDV | Portfolio";
-$is_inside_subfolder = (basename(__DIR__) === 'PORTFOLIO');
-$projects_root = $is_inside_subfolder ? "../" : "";
-
-$projects = [
-    [
-        'id' => 'buyparts',
-        'title' => 'Buyparts - Vehicle & Bike E-Commerce',
-        'category' => 'E-Commerce System',
-        'color_theme' => 'yellow',
-        'type' => 'desktop',
-        'image' => 'images/Buyparts.png',
-        'tags' => ['PHP', 'MySQL', 'JavaScript', 'CSS3', 'E-Commerce'],
-        'description' => 'A comprehensive online marketplace for ordering automobile, motorcycle, and bicycle spare parts with shopping cart, chat system, and checkout workflow.',
-        'details' => 'Features full SQL database schema, product catalog filters (CARS.php, MOTORCYCLE.php, BICYCLE.php), shopping cart (addToCart.php), Google OAuth callback, live chat system (chat.php, chat.js), and checkout order processing.',
-        'gallery' => [
-            'images/buyparts/buy1.png',
-            'images/buyparts/buy2.png',
-            'images/buyparts/buy3.png',
-            'images/buyparts/buuy4.png',
-            'images/buyparts/buy5.png'
-        ]
-    ],
-    [
-        'id' => 'hris',
-        'title' => 'HRIS System Attendance Side (Official)',
-        'category' => 'Enterprise System',
-        'color_theme' => 'blue',
-        'type' => 'desktop',
-        'image' => 'images/HRIS.png',
-        'tags' => ['PHP', 'MySQL DB', 'Multi-Role Auth', 'Admin Dashboard'],
-        'description' => 'A collaborative group internship project during OJT featuring an "Official Human Resource Information System" with granular role-based management across Super Admin, Admin, Coach, and Employee dashboards.',
-        'details' => 'Engineered with relational SQL databases (official_hris_db.sql, employees.sql), employee records management, attendance monitoring, payroll log tracking, API endpoints (api/), and secure multi-tier session login.',
-        'gallery' => [
-            'images/hris/hris1.png',
-            'images/hris/hris2.png',
-            'images/hris/hris3.png',
-            'images/hris/hris4.png',
-            'images/hris/hris5.png',
-            'images/hris/hris6.png'
-        ]
-    ],
-    [
-        'id' => 'examterm',
-        'title' => 'Makebili - Campus Food Delivery & E-Commerce',
-        'category' => 'E-Commerce System',
-        'color_theme' => 'yellow',
-        'type' => 'desktop',
-        'image' => 'images/makebili.png',
-        'tags' => ['PHP', 'MySQL Auth', 'Category Filters', 'Student Delivery'],
-        'description' => 'Makebili is an e-commerce platform designed for campus food stalls. It connects local sellers with students, enabling vendors to boost sales while allowing students to earn extra income by delivering orders within the school.',
-        'details' => 'Includes automated database setup (init_database.php), category management (categories.php), user authentication handlers (process_login.php, process_registration.php), interactive shopping/enrollment cart, and order delivery modules.',
-        'gallery' => [
-            'images/makebili/makebili1.png',
-            'images/makebili/makebili2.png',
-            'images/makebili/makebili3.png',
-            'images/makebili/makebili4.png'
-        ]
-    ],
-    [
-        'id' => 'hielo',
-        'title' => 'Hielo - Bacolod Tourism Showcase',
-        'category' => 'Cultural Tourism',
-        'color_theme' => 'blue',
-        'type' => 'desktop',
-        'image' => 'images/Masskara.png',
-        'tags' => ['HTML5', 'CSS3', 'JavaScript', 'Tourism Guide'],
-        'description' => 'La Salle Expo group project interactive tourism web application featuring Bacolod City landmarks, historical houses (The Ruins, Balay Negrense), delicacies, tours, and merchandise.',
-        'details' => 'Presents rich multimedia pages highlighting historic sites (plaza, cathedral, museums), delicacies guides, interactive event merchandise store, arena schedules, and local tour booking details.',
-        'gallery' => [
-            'images/masskara/mass1.png',
-            'images/masskara/mass2.png',
-            'images/masskara/mass3.png',
-            'images/masskara/mass4.png',
-            'images/masskara/mass5.png'
-        ]
-    ],
-    [
-        'id' => 'agriease',
-        'title' => 'AgriEase - Mobile Web AgriTech App',
-        'category' => 'Mobile Web App',
-        'color_theme' => 'yellow',
-        'type' => 'mobile',
-        'image' => 'images/agriease.png',
-        'tags' => ['Mobile Web', 'AgriTech', 'PHP', 'JavaScript', 'Responsive UI'],
-        'description' => 'Capstone and research web and mobile-based machines to agricultural equipment for rent. The project’s goal is to enable smallholder farmers to access a more transparent and efficient way to rent modern agricultural machinery through the system of shared economy.',
-        'details' => 'Engineered for seamless mobile web access. Features responsive mobile navigation, smart farming dashboard metrics, equipment rental listings, real-time crop updates, and streamlined farmer-to-owner connectivity.',
-        'gallery' => [
-            'images/agritech/agri1.png',
-            'images/agritech/agri2.png',
-            'images/agritech/agri3.png',
-            'images/agritech/agri4.png',
-            'images/agritech/agri5.png',
-            'images/agritech/agri6.png',
-            'images/agritech/agri7.png',
-            'images/agritech/agri8.png',
-            'images/agritech/agri9.png',
-            'images/agritech/agri10.png',
-            'images/agritech/agri11.png'
-        ]
-    ]
-];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $portfolio_title; ?></title>
+    <title>KDV | Portfolio</title>
     <meta name="description" content="Kenneth De Vera - An Aspiring Fullstack Web Developer Portfolio showcasing PHP, MySQL, JavaScript, and custom web applications.">
-    
-    <link rel="icon" type="image/png" href="images/favicon.png?v=1.1">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png?v=1.1">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Browser Tab Favicon Icon -->
+    <link rel="icon" type="image/png" href="images/favicon.png?v=1.2">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png?v=1.2">
 
+    <!-- Open Graph LinkedIn & Social Media Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://xervereal.helioho.st/public_html/PORTFOLIO/index.php">
     <meta property="og:title" content="Kenneth De Vera | Fullstack Web Developer Portfolio">
     <meta property="og:description" content="Explore live web applications, enterprise HRIS systems, PHP/MySQL architecture, and custom web software solutions engineered by Kenneth De Vera.">
     <meta property="og:image" content="https://xervereal.helioho.st/public_html/PORTFOLIO/images/HRIS.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Early Theme Detection -->
-    <script>
-        (function() {
-            try {
-                var saved = localStorage.getItem('kdv_theme');
-                var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-                if (saved === 'light' || (!saved && prefersLight)) {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    document.documentElement.classList.add('light-mode');
-                }
-            } catch (e) {}
-        })();
-    </script>
-
-    <link rel="stylesheet" href="style.css?v=5.0">
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=3.2">
 </head>
 <body>
 
+    <!-- GPU Accelerated Fixed Background Layer -->
     <div class="fixed-bg"></div>
 
     <!-- CYBER PRELOADER LOADING SCREEN -->
@@ -168,6 +54,7 @@ $projects = [
 
     <canvas id="netCanvas"></canvas>
 
+    <!-- Background Ambient Neon Glow & Spiral Animations -->
     <div class="ambient-glow glow-yellow"></div>
     <div class="ambient-glow glow-blue"></div>
     <div class="cyber-spiral-bg spiral-top-left"></div>
@@ -176,6 +63,7 @@ $projects = [
     <!-- Top Navigation Pill -->
     <header class="nav-container">
         <nav class="pill-navbar" id="pillNavbar">
+            <!-- Animated Hamburger Toggle for Mobile -->
             <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation">
                 <span class="bar bar1"></span>
                 <span class="bar bar2"></span>
@@ -199,7 +87,8 @@ $projects = [
                 </li>
             </ul>
 
-            <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light and Dark Mode" title="Toggle Light / Dark Mode">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch Theme" title="Switch Theme">
                 <i class="fa-solid fa-sun" id="themeToggleIcon"></i>
             </button>
         </nav>
@@ -211,17 +100,23 @@ $projects = [
         <!-- HOME SECTION -->
         <section id="home" class="hero-section">
             <div class="hero-container">
-                <div class="hero-badge">
-                    <i class="fa-solid fa-sparkles"></i> Welcome to My Portfolio
+                <div class="hero-badge-group">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-sparkles"></i> Welcome to My Portfolio
+                    </div>
+                    <div class="hero-ai-badge">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> AI-Assisted Fullstack &amp; Architecture
+                    </div>
                 </div>
                 <h1 class="hero-heading">Kenneth De Vera</h1>
                 <p class="hero-subtitle">
-                    An Aspiring Fullstack Web Developer & crafting dynamic PHP/MySQL applications and modern web solutions.
+                    An Aspiring Fullstack Web Developer crafting dynamic PHP/MySQL applications and modern web solutions enhanced with AI architecture.
                 </p>
 
+                <!-- Action Buttons -->
                 <div class="hero-cta-buttons">
                     <a href="assets/deverakennethcv.pdf" download="deverakennethcv.pdf" target="_blank" class="btn-resume" id="btn-resume">
-                        <i class="fa-solid fa-download"></i> Resume
+                        <i class="fa-solid fa-download"></i> Download Resume
                     </a>
                     <a href="#about" class="btn-experience" id="btn-experience">
                         About Me
@@ -238,17 +133,19 @@ $projects = [
                 <div class="heading-line"></div>
             </div>
 
+            <!-- Reference Image Bio Glass Card -->
             <div class="who-am-i-box">
                 <h3 class="who-am-i-title">Who Am I</h3>
                 <p class="bio-main">
-                    I'm <strong class="highlight-yellow">Kenneth De Vera</strong>, a resourceful and motivated fresh grad student with a foundation in programming, system troubleshooting, and development.
+                    I'm <strong class="highlight-yellow">Kenneth De Vera</strong>, a resourceful and motivated fresh grad student with a foundation in programming, system troubleshooting, and modern development. By integrating AI-assisted development tools into my workflow, I rapidly prototype system architectures, optimize database schemas, and accelerate full-stack delivery while maintaining strict clean-code principles.
                 </p>
                 <p class="bio-lorem">
-                    Capable in both collaborative and independent environments, delivering creative solutions through advanced technical skills. Demonstrates a passion for emerging technologies and staying updated on industry trends, complemented by hands-on experience in video editing. Eager to apply knowledge and skills to real-world challenges and contribute to innovative projects across diverse platforms.
+                    Capable in both collaborative and independent environments, I deliver creative solutions through advanced technical skills and a passion for emerging technologies. Demonstrates a continuous eagerness to apply knowledge and skills to real-world challenges and contribute to innovative projects across diverse platforms.
                 </p>
             </div>
 
             <div class="about-cards-grid">
+                <!-- Skill Card 1 -->
                 <div class="about-card glass-panel">
                     <div class="icon-box box-yellow">
                         <i class="fa-solid fa-code-commit"></i>
@@ -264,6 +161,7 @@ $projects = [
                     </ul>
                 </div>
 
+                <!-- Skill Card 2 -->
                 <div class="about-card glass-panel">
                     <div class="icon-box box-blue">
                         <i class="fa-solid fa-laptop-code"></i>
@@ -284,10 +182,10 @@ $projects = [
                     </div>
                 </div>
 
-                <!-- Academic Background Card (Clean Theme-Aware Classes) -->
+                <!-- Academic Background Card -->
                 <div class="about-card glass-panel full-width-card">
                     <div class="academic-header">
-                        <div class="icon-box box-yellow">
+                        <div class="icon-box box-yellow" style="width: 46px; height: 46px; font-size: 1.25rem;">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <div>
@@ -300,11 +198,11 @@ $projects = [
                         <!-- Tertiary Education -->
                         <div class="academic-item-box">
                             <div class="academic-item-top">
-                                <span class="academic-level text-yellow">TERTIARY</span>
+                                <span class="academic-level" style="color: var(--yellow);">TERTIARY</span>
                                 <span class="academic-year-pill yellow"><i class="fa-regular fa-calendar-days"></i> 2022 – 2026</span>
                             </div>
-                            <h4 class="academic-school">University of Saint La Salle — Bacolod</h4>
-                            <p class="academic-degree">Bachelor of Science in Information Technology (BSIT)</p>
+                            <h4 class="academic-school">University of Saint La Salle — Bacolod[cite: 3]</h4>
+                            <p class="academic-degree">Bachelor of Science in Information Technology (BSIT)[cite: 3]</p>
                             <div class="academic-badges">
                                 <span class="acad-badge yellow"><i class="fa-solid fa-award"></i> 1st–3rd Year Dean's Lister</span>
                                 <span class="acad-badge blue"><i class="fa-solid fa-medal"></i> Academic Achiever</span>
@@ -314,7 +212,7 @@ $projects = [
                         <!-- Senior High School -->
                         <div class="academic-item-box">
                             <div class="academic-item-top">
-                                <span class="academic-level text-blue">SENIOR HIGH SCHOOL</span>
+                                <span class="academic-level" style="color: var(--blue);">SENIOR HIGH SCHOOL</span>
                                 <span class="academic-year-pill blue"><i class="fa-regular fa-calendar-days"></i> 2020 – 2022</span>
                             </div>
                             <h4 class="academic-school">Doña Hortencia Salas Benedicto National High School</h4>
@@ -327,7 +225,7 @@ $projects = [
                         <!-- Junior High School -->
                         <div class="academic-item-box">
                             <div class="academic-item-top">
-                                <span class="academic-level text-yellow">JUNIOR HIGH SCHOOL</span>
+                                <span class="academic-level" style="color: var(--yellow);">JUNIOR HIGH SCHOOL</span>
                                 <span class="academic-year-pill yellow"><i class="fa-regular fa-calendar-days"></i> 2016 – 2020</span>
                             </div>
                             <h4 class="academic-school">Doña Hortencia Salas Benedicto National High School</h4>
@@ -344,7 +242,7 @@ $projects = [
                 <div class="about-card glass-panel full-width-card">
                     <div class="stats-counter-row">
                         <div class="stat-item">
-                            <span class="stat-num text-yellow"><?php echo count($projects); ?></span>
+                            <span class="stat-num text-yellow">5</span>
                             <span class="stat-text">Active Projects</span>
                         </div>
                         <div class="stat-item">
@@ -391,11 +289,11 @@ $projects = [
                             <div class="skill-item-head">
                                 <div class="skill-icon-title">
                                     <i class="fa-solid fa-layer-group skill-icon blue"></i>
-                                    <h4>Frontend / Backend Developer</h4>
+                                    <h4>Frontend &amp; Backend</h4>
                                 </div>
-                                <span class="skill-tag yellow"><i class="fa-solid fa-arrows-rotate fa-spin"></i> FULLSTACK (ONGOING)</span>
+                                <span class="skill-tag yellow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-ASSISTED STACK</span>
                             </div>
-                            <p class="skill-desc">Architecting responsive glassmorphism user interfaces alongside secure server-side logic, session management, and REST APIs.</p>
+                            <p class="skill-desc">Architecting responsive user interfaces and secure server-side logic, leveraging AI-assisted workflows to accelerate prototyping, database schema design, and full-stack integration.</p>
                         </div>
 
                         <div class="skill-card-item">
@@ -468,9 +366,9 @@ $projects = [
                     <div class="timeline-header">
                         <div class="timeline-role">
                             <span class="timeline-badge yellow"><i class="fa-solid fa-building-user"></i> INTERNSHIP</span>
-                            <h3>Software Development & NOC Intern — IReply Back Office Services, Inc.</h3>
+                            <h3>Software Development & NOC Intern — IReply Back Office Services, Inc.[cite: 4]</h3>
                         </div>
-                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> Dec 2025 – April 2026</span>
+                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> Dec 2025 – April 2026[cite: 3]</span>
                     </div>
 
                     <p class="timeline-desc">
@@ -529,6 +427,7 @@ $projects = [
                 <div class="heading-line"></div>
             </div>
 
+            <!-- DYNAMIC PROJECT CATEGORY FILTER BAR -->
             <div class="project-filter-bar" id="projectFilterBar">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="e-commerce">E-Commerce</button>
@@ -538,33 +437,100 @@ $projects = [
             </div>
 
             <div class="projects-grid">
-                <?php foreach ($projects as $proj): ?>
-                    <article class="project-card glass-panel" data-id="<?php echo $proj['id']; ?>" onclick="showProjectDetails('<?php echo $proj['id']; ?>')">
-                        <div class="project-header-banner">
-                            <img src="<?php echo htmlspecialchars($proj['image']); ?>" alt="<?php echo htmlspecialchars($proj['title']); ?>" class="project-card-img" loading="lazy" decoding="async">
-                            <span class="badge-category <?php echo $proj['color_theme']; ?>">
-                                <?php echo htmlspecialchars($proj['category']); ?>
-                            </span>
+                <article class="project-card glass-panel" data-id="buyparts" onclick="showProjectDetails('buyparts')">
+                    <div class="project-header-banner">
+                        <img src="images/Buyparts.png" alt="Buyparts - Vehicle &amp; Bike E-Commerce" class="project-card-img" loading="lazy" decoding="async">
+                        <span class="badge-category yellow">E-Commerce System</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>CSS3</span><span>E-Commerce</span>
                         </div>
-
-                        <div class="project-body">
-                            <div class="project-tags">
-                                <?php foreach ($proj['tags'] as $tag): ?>
-                                    <span><?php echo htmlspecialchars($tag); ?></span>
-                                <?php endforeach; ?>
-                            </div>
-
-                            <h3 class="project-name"><?php echo htmlspecialchars($proj['title']); ?></h3>
-                            <p class="project-snippet"><?php echo htmlspecialchars($proj['description']); ?></p>
-
-                            <div class="project-footer-btns">
-                                <button class="btn-details-action btn-launch btn-<?php echo $proj['color_theme']; ?>" type="button" onclick="showProjectDetails('<?php echo $proj['id']; ?>')">
-                                    <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
-                                </button>
-                            </div>
+                        <h3 class="project-name">Buyparts - Vehicle &amp; Bike E-Commerce</h3>
+                        <p class="project-snippet">A comprehensive online marketplace for ordering automobile, motorcycle, and bicycle spare parts with shopping cart, chat system, and checkout workflow.</p>
+                        <div class="project-footer-btns">
+                            <button class="btn-details-action btn-launch btn-yellow" type="button" onclick="showProjectDetails('buyparts')">
+                                <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
+                            </button>
                         </div>
-                    </article>
-                <?php endforeach; ?>
+                    </div>
+                </article>
+
+                <article class="project-card glass-panel" data-id="hris" onclick="showProjectDetails('hris')">
+                    <div class="project-header-banner">
+                        <img src="images/HRIS.png" alt="HRIS System Attendance Side (Official)" class="project-card-img" loading="lazy" decoding="async">
+                        <span class="badge-category blue">Enterprise System</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span>PHP</span><span>MySQL DB</span><span>Multi-Role Auth</span><span>Admin Dashboard</span>
+                        </div>
+                        <h3 class="project-name">HRIS System Attendance Side (Official)</h3>
+                        <p class="project-snippet">A collaborative group internship project during OJT featuring an "Official Human Resource Information System" with granular role-based management across Super Admin, Admin, Coach, and Employee dashboards.</p>
+                        <div class="project-footer-btns">
+                            <button class="btn-details-action btn-launch btn-blue" type="button" onclick="showProjectDetails('hris')">
+                                <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-panel" data-id="examterm" onclick="showProjectDetails('examterm')">
+                    <div class="project-header-banner">
+                        <img src="images/makebili.png" alt="Makebili - Campus Food Delivery &amp; E-Commerce" class="project-card-img" loading="lazy" decoding="async">
+                        <span class="badge-category yellow">E-Commerce System</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span>PHP</span><span>MySQL Auth</span><span>Category Filters</span><span>Student Delivery</span>
+                        </div>
+                        <h3 class="project-name">Makebili - Campus Food Delivery &amp; E-Commerce</h3>
+                        <p class="project-snippet">Makebili is an e-commerce platform designed for campus food stalls. It connects local sellers with students, enabling vendors to boost sales while allowing students to earn extra income by delivering orders within the school.</p>
+                        <div class="project-footer-btns">
+                            <button class="btn-details-action btn-launch btn-yellow" type="button" onclick="showProjectDetails('examterm')">
+                                <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-panel" data-id="hielo" onclick="showProjectDetails('hielo')">
+                    <div class="project-header-banner">
+                        <img src="images/Masskara.png" alt="Hielo - Bacolod Tourism Showcase" class="project-card-img" loading="lazy" decoding="async">
+                        <span class="badge-category blue">Cultural Tourism</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Tourism Guide</span>
+                        </div>
+                        <h3 class="project-name">Hielo - Bacolod Tourism Showcase</h3>
+                        <p class="project-snippet">La Salle Expo group project interactive tourism web application featuring Bacolod City landmarks, historical houses (The Ruins, Balay Negrense), delicacies, tours, and merchandise.</p>
+                        <div class="project-footer-btns">
+                            <button class="btn-details-action btn-launch btn-blue" type="button" onclick="showProjectDetails('hielo')">
+                                <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-panel" data-id="agriease" onclick="showProjectDetails('agriease')">
+                    <div class="project-header-banner">
+                        <img src="images/agriease.png" alt="AgriEase - Mobile Web AgriTech App" class="project-card-img" loading="lazy" decoding="async">
+                        <span class="badge-category yellow">Mobile Web App</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span>Mobile Web</span><span>AgriTech</span><span>PHP</span><span>JavaScript</span><span>Responsive UI</span>
+                        </div>
+                        <h3 class="project-name">AgriEase - Mobile Web AgriTech App</h3>
+                        <p class="project-snippet">Capstone and research web and mobile-based machines to agricultural equipment for rent. The project’s goal is to enable smallholder farmers to access a more transparent and efficient way to rent modern agricultural machinery.</p>
+                        <div class="project-footer-btns">
+                            <button class="btn-details-action btn-launch btn-yellow" type="button" onclick="showProjectDetails('agriease')">
+                                <i class="fa-solid fa-layer-group"></i> View Details &amp; Gallery
+                            </button>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -610,7 +576,7 @@ $projects = [
                         <p>Connect with me on Instagram for direct messaging, social updates, and visual content.</p>
                     </a>
 
-                    <a href="https://github.com/HicrouX" target="_blank" rel="noopener" class="social-card full-width-card">
+                    <a href="https://github.com/HicrouXz" target="_blank" rel="noopener" class="social-card full-width-card">
                         <div class="social-card-head">
                             <i class="fa-brands fa-github social-icon"></i>
                             <h3>GitHub</h3>
@@ -623,28 +589,23 @@ $projects = [
                     <div class="touch-card-banner">
                         <div class="banner-title-art">KENNETH</div>
                     </div>
-
                     <div class="touch-card-content">
                         <h2 class="touch-heading">Get in Touch</h2>
-
                         <div class="touch-item">
                             <span class="touch-label">PRIMARY EMAIL</span>
                             <h4 class="touch-value">kennethdv22@gmail.com</h4>
                             <p class="touch-desc">Feel free to drop a message anytime. I regularly check my inbox and aim to respond promptly.</p>
                         </div>
-
                         <div class="touch-item">
                             <span class="touch-label">LOCATION & TIMEZONE</span>
-                            <h4 class="touch-value">Bacolod City, Philippines</h4>
+                            <h4 class="touch-value">Bacolod City, Philippines[cite: 1]</h4>
                             <p class="touch-desc">Based in Negros Occidental (GMT+8), open to remote developer contracts and global remote teams.</p>
                         </div>
-
                         <div class="touch-item">
                             <span class="touch-label">WORK AVAILABILITY</span>
                             <h4 class="touch-value">Monday – Friday</h4>
                             <p class="touch-desc">Actively available for Fullstack Web Development, PHP/MySQL systems, and software engineering roles.</p>
                         </div>
-
                         <a href="mailto:kennethdv22@gmail.com?subject=Portfolio%20Inquiry%20-%20Kenneth%20De%20Vera" onclick="handleEmailClick(event)" class="btn-send-email">
                             <i class="fa-solid fa-paper-plane"></i> Send Email
                         </a>
@@ -658,7 +619,7 @@ $projects = [
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
-            <p>&copy; <?php echo date('Y'); ?> <strong>Kenneth De Vera</strong>. All Rights Reserved.</p>
+            <p>&copy; 2026 <strong>Kenneth De Vera</strong>. All Rights Reserved.</p>
             <div class="footer-nav">
                 <a href="#home">Home</a>
                 <a href="#about">About me</a>
@@ -701,8 +662,8 @@ $projects = [
     </div>
 
     <script>
-        const PROJECTS_DATA = <?php echo json_encode($projects); ?>;
+        const PROJECTS_DATA = [{"id":"buyparts","title":"Buyparts - Vehicle & Bike E-Commerce","category":"E-Commerce System","color_theme":"yellow","type":"desktop","image":"images\/Buyparts.png","tags":["PHP","MySQL","JavaScript","CSS3","E-Commerce"],"description":"A comprehensive online marketplace for ordering automobile, motorcycle, and bicycle spare parts with shopping cart, chat system, and checkout workflow.","details":"Features full SQL database schema, product catalog filters (CARS.php, MOTORCYCLE.php, BICYCLE.php), shopping cart (addToCart.php), Google OAuth callback, live chat system (chat.php, chat.js), and checkout order processing.","gallery":["images\/buyparts\/buy1.png","images\/buyparts\/buy2.png","images\/buyparts\/buy3.png","images\/buyparts\/buuy4.png","images\/buyparts\/buy5.png"]},{"id":"hris","title":"HRIS System Attendance Side (Official)","category":"Enterprise System","color_theme":"blue","type":"desktop","image":"images\/HRIS.png","tags":["PHP","MySQL DB","Multi-Role Auth","Admin Dashboard"],"description":"A collaborative group internship project during OJT featuring an \"Official Human Resource Information System\" with granular role-based management across Super Admin, Admin, Coach, and Employee dashboards.","details":"Engineered with relational SQL databases (official_hris_db.sql, employees.sql), employee records management, attendance monitoring, payroll log tracking, API endpoints (api\/), and secure multi-tier session login.","gallery":["images\/hris\/hris1.png","images\/hris\/hris2.png","images\/hris\/hris3.png","images\/hris\/hris4.png","images\/hris\/hris5.png","images\/hris\/hris6.png"]},{"id":"examterm","title":"Makebili - Campus Food Delivery & E-Commerce","category":"E-Commerce System","color_theme":"yellow","type":"desktop","image":"images\/makebili.png","tags":["PHP","MySQL Auth","Category Filters","Student Delivery"],"description":"Makebili is an e-commerce platform designed for campus food stalls. It connects local sellers with students, enabling vendors to boost sales while allowing students to earn extra income by delivering orders within the school.","details":"Includes automated database setup (init_database.php), category management (categories.php), user authentication handlers (process_login.php, process_registration.php), interactive shopping\/enrollment cart, and order delivery modules.","gallery":["images\/makebili\/makebili1.png","images\/makebili\/makebili2.png","images\/makebili\/makebili3.png","images\/makebili\/makebili4.png"]},{"id":"hielo","title":"Hielo - Bacolod Tourism Showcase","category":"Cultural Tourism","color_theme":"blue","type":"desktop","image":"images\/Masskara.png","tags":["HTML5","CSS3","JavaScript","Tourism Guide"],"description":"La Salle Expo group project interactive tourism web application featuring Bacolod City landmarks, historical houses (The Ruins, Balay Negrense), delicacies, tours, and merchandise.","details":"Presents rich multimedia pages highlighting historic sites (plaza, cathedral, museums), delicacies guides, interactive event merchandise store, arena schedules, and local tour booking details.","gallery":["images\/masskara\/mass1.png","images\/masskara\/mass2.png","images\/masskara\/mass3.png","images\/masskara\/mass4.png","images\/masskara\/mass5.png"]},{"id":"agriease","title":"AgriEase - Mobile Web AgriTech App","category":"Mobile Web App","color_theme":"yellow","type":"mobile","image":"images\/agriease.png","tags":["Mobile Web","AgriTech","PHP","JavaScript","Responsive UI"],"description":"Capstone and research web and mobile-based machines to agricultural equipment for rent. The project’s goal is to enable smallholder farmers to access a more transparent and efficient way to rent modern agricultural machinery.","details":"Engineered for seamless mobile web access. Features responsive mobile navigation, smart farming dashboard metrics, equipment rental listings, real-time crop updates, and streamlined farmer-to-owner connectivity.","gallery":["images\/agritech\/agri1.png","images\/agritech\/agri2.png","images\/agritech\/agri3.png","images\/agritech\/agri4.png","images\/agritech\/agri5.png","images\/agritech\/agri6.png","images\/agritech\/agri7.png","images\/agritech\/agri8.png","images\/agritech\/agri9.png","images\/agritech\/agri10.png","images\/agritech\/agri11.png"]}];
     </script>
-    <script src="script.js?v=5.0"></script>
+    <script src="script.js?v=3.2"></script>
 </body>
 </html>
