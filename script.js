@@ -461,12 +461,5 @@ function applyTheme(theme) {
             toggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
         }
     }
-
-    const navbar = document.getElementById('pillNavbar');
-    if (navbar) {
-        navbar.style.display = 'none';
-        navbar.offsetHeight; 
-        navbar.style.display = '';
-    }
 }
 window.applyTheme = applyTheme;

@@ -851,21 +851,21 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    align-items: start;
 }
 
 /* Individual Module Cards */
 .experience-card {
-    padding: 28px;
+    padding: 24px 28px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 18px;
     border-radius: var(--radius-card);
     background: rgba(18, 20, 26, 0.96);
     border: 1px solid var(--bg-panel-border);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .experience-card::before {
@@ -881,7 +881,7 @@ body {
 
 .experience-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(0, 229, 255, 0.08);
 }
 
@@ -891,8 +891,9 @@ body {
 
 .exp-card-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
+    width: 100%;
 }
 
 .exp-card-icon {
@@ -933,6 +934,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    flex-grow: 1;
 }
 
 .exp-card-highlight {
@@ -949,12 +951,61 @@ body {
     font-weight: 600;
 }
 
+.exp-card-arrow {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+}
+
+.experience-card:hover .exp-card-arrow {
+    transform: rotate(180deg);
+    color: var(--yellow);
+    background: rgba(255, 230, 0, 0.12);
+    border-color: rgba(255, 230, 0, 0.3);
+}
+
+/* Expandable content area (Desktop Hover Animation - Independent) */
+@media (min-width: 769px) {
+    .exp-card-expandable {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        margin-top: 0;
+        transition: grid-template-rows 0.50s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.50s ease,
+                    margin-top 0.50s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+    }
+
+    .exp-card-expandable-inner {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        overflow: hidden;
+    }
+
+    .experience-card:hover .exp-card-expandable {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-top: 18px;
+    }
+}
+
 .exp-card-desc {
     color: #cbd5e1;
     font-size: 0.94rem;
     line-height: 1.65;
     margin: 0;
-    flex-grow: 1;
 }
 
 .exp-card-tags {
@@ -1663,6 +1714,7 @@ body {
 /* ==========================================================================
    THEME TOGGLE BUTTON
    ========================================================================== */
+/* Replace your existing .theme-toggle-btn rules in style.css with this: */
 .theme-toggle-btn {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.16);
@@ -1675,16 +1727,25 @@ body {
     align-items: center;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     margin-left: 8px;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
-.theme-toggle-btn:hover {
-    background: rgba(255, 230, 0, 0.16);
-    border-color: var(--yellow);
-    transform: scale(1.08) rotate(15deg);
-    box-shadow: 0 0 16px var(--yellow-glow);
+/* Only apply tilt/scale on devices with a mouse */
+@media (hover: hover) {
+    .theme-toggle-btn:hover {
+        background: rgba(255, 230, 0, 0.16);
+        border-color: var(--yellow);
+        transform: scale(1.08) rotate(15deg);
+        box-shadow: 0 0 16px var(--yellow-glow);
+    }
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.92);
 }
 
 /* ==========================================================================
@@ -1717,13 +1778,15 @@ body.light-mode {
 
 html.light-mode,
 body.light-mode {
-    background-color: #f8fafc !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    background-attachment: scroll !important;
     color: #0f172a !important;
 }
 
 html.light-mode .preloader-overlay,
 body.light-mode .preloader-overlay {
-    background: #f8fafc !important;
+    background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 50%, #fffde7 100%) !important;
 }
 
 html.light-mode .spinner-core,
@@ -1750,12 +1813,34 @@ body.light-mode .preloader-status {
     color: #475569 !important;
 }
 
+/* 60FPS Hardware-Accelerated Gradient on fixed-bg (Cached Layer, Zero Repaint on Scroll) */
 html.light-mode .fixed-bg,
 body.light-mode .fixed-bg {
-    background-color: #f8fafc !important;
+    background-color: #ffffff !important;
     background-image: 
-        linear-gradient(rgba(248, 250, 252, 0.94), rgba(248, 250, 252, 0.94)),
-        url('images/backgroud.png') !important;
+        radial-gradient(circle at 10% 12%, rgba(0, 229, 255, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 90% 10%, rgba(255, 230, 0, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(0, 229, 255, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 12% 88%, rgba(255, 230, 0, 0.22) 0%, transparent 45%),
+        linear-gradient(135deg, #e0f7fa 0%, #ffffff 42%, #ffffff 58%, #fffde7 100%) !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    opacity: 1 !important;
+}
+
+/* Hide continuous spinning decorative elements in light mode to preserve 100% smooth scrolling */
+html.light-mode .cyber-spiral-bg,
+body.light-mode .cyber-spiral-bg,
+html.light-mode #netCanvas,
+body.light-mode #netCanvas,
+html.light-mode .glow-yellow,
+body.light-mode .glow-yellow,
+html.light-mode .glow-blue,
+body.light-mode .glow-blue {
+    display: none !important;
 }
 
 html.light-mode .pill-navbar,
@@ -1845,8 +1930,30 @@ body.light-mode .social-card,
 html.light-mode .get-in-touch-card,
 body.light-mode .get-in-touch-card {
     background: rgba(255, 255, 255, 0.96) !important;
-    border: 1px solid rgba(15, 23, 42, 0.1) !important;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light-mode .category-header h3,
+body.light-mode .category-header h3,
+html.light-mode .skill-icon-title h4,
+body.light-mode .skill-icon-title h4,
+html.light-mode .hero-heading,
+body.light-mode .hero-heading,
+html.light-mode .hero-title,
+body.light-mode .hero-title,
+html.light-mode .section-title,
+body.light-mode .section-title,
+html.light-mode .modal-project-title,
+body.light-mode .modal-project-title {
+    color: #0f172a !important;
+}
+
+html.light-mode .category-header,
+body.light-mode .category-header {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
 }
 
 html.light-mode .timeline-item,
@@ -1895,6 +2002,20 @@ body.light-mode .exp-card-tags span {
 html.light-mode .exp-card-tags span i,
 body.light-mode .exp-card-tags span i {
     color: #0284c7 !important;
+}
+
+html.light-mode .exp-card-arrow,
+body.light-mode .exp-card-arrow {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #475569 !important;
+}
+
+html.light-mode .experience-card:hover .exp-card-arrow,
+body.light-mode .experience-card:hover .exp-card-arrow {
+    background: rgba(217, 119, 6, 0.12) !important;
+    border-color: rgba(217, 119, 6, 0.3) !important;
+    color: #d97706 !important;
 }
 
 html.light-mode .academic-item-box,
@@ -2084,6 +2205,27 @@ body.light-mode .back-to-top-btn {
     .nav-menu.active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
     .mobile-menu-header, .mobile-menu-footer { display: flex !important; width: 100%; justify-content: center; }
     .projects-grid, .connect-cards-grid, .experience-grid-2x2 { grid-template-columns: 1fr !important; }
+    .experience-card {
+        padding: 22px !important;
+        cursor: default !important;
+    }
+    .exp-card-arrow {
+        display: none !important;
+    }
+    .exp-card-expandable {
+        display: block !important;
+        grid-template-rows: none !important;
+        opacity: 1 !important;
+        margin-top: 14px !important;
+        overflow: visible !important;
+    }
+    .exp-card-expandable-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+        overflow: visible !important;
+        min-height: auto !important;
+    }
     .hero-cta-buttons { flex-direction: column; width: 100%; }
     .btn-resume, .btn-experience { width: 100%; justify-content: center; }
     
