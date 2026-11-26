@@ -33,7 +33,7 @@ function initPreloader() {
     }, 1000);
 
     setTimeout(() => {
-        status.textContent = 'SYNCHRONIZING GRAPHICS & DATABASE...';
+        status.textContent = 'SYNCHRONIZING STYLES & DATABASE...';
     }, 2200);
 
     setTimeout(() => {
